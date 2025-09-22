@@ -1,0 +1,18 @@
+# This is a config for E2B sandbox template.
+# You can use template ID (dgcanzrrlvhyju0asxth) or template name (unified-automation-vnc) to create a sandbox:
+
+# Python SDK
+# from e2b import Sandbox, AsyncSandbox
+# sandbox = Sandbox("unified-automation-vnc") # Sync sandbox
+# sandbox = await AsyncSandbox.create("unified-automation-vnc") # Async sandbox
+
+# JS SDK
+# import { Sandbox } from 'e2b'
+# const sandbox = await Sandbox.create('unified-automation-vnc')
+
+team_id = "cd0b3618-915c-4e8c-af0a-73e8f7cec1de"
+ready_cmd = "curl -f http://localhost:6080 >/dev/null 2>&1 && curl -f http://localhost:8080/api/health >/dev/null 2>&1"
+start_cmd = "/home/user/start-all-services.sh"
+dockerfile = "e2b.Dockerfile"
+template_name = "unified-automation-vnc"
+template_id = "dgcanzrrlvhyju0asxth"

@@ -1,0 +1,30 @@
+playwright==1.40.0
+requests==2.31.0
+beautifulsoup4==4.12.2
+lxml==4.9.3
+e2b==1.11.1
+
+# 核心依赖
+aiohttp==3.9.1
+asyncio-throttle==1.0.2
+python-dotenv==1.0.0
+
+# 可选：如果需要数据处理
+pandas==2.1.3
+
+# 可选：如果需要Web服务
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# OCR依赖 - suna浏览器服务所需
+pytesseract==0.3.10
+Pillow==10.1.0
+
+# 额外的反检测和数据处理工具（可选）
+selenium==4.15.2
+fake-useragent==1.4.0
+user-agents==2.2.0
+nest_asyncio==1.5.8
+pytz==2023.3
+
+# 注意：websockify已在Docker层面安装，无需在此重复添加
