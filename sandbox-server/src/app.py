@@ -21,6 +21,8 @@ sys.path.insert(0, str(project_root))  # 添加sandbox-server目录
 
 from api.browser_routes import browser_router
 from api.sandbox_routes import sandbox_router
+from api.text_routes import text_router
+from api.pain_analysis_routes import pain_analysis_router
 from middleware.error_handler import ErrorHandlerMiddleware
 from config.settings import settings
 
@@ -74,6 +76,8 @@ app.add_middleware(
 # 注册路由
 app.include_router(browser_router, prefix="/api/browser", tags=["浏览器自动化"])
 app.include_router(sandbox_router, prefix="/api/sandbox", tags=["沙盒信息"])
+app.include_router(text_router, prefix="/api/text", tags=["文本处理"])
+app.include_router(pain_analysis_router, prefix="/api/pain-analysis", tags=["痛点分析"])
 
 @app.get("/")
 async def root():
@@ -92,7 +96,9 @@ async def root():
         },
         "api_endpoints": {
             "browser_automation": "/api/browser/automation",
-            "sandbox_management": "/api/sandbox/*"
+            "sandbox_management": "/api/sandbox/*",
+            "text_processing": "/api/text/automation",
+            "pain_analysis": "/api/pain-analysis/store"
         },
         "llm_friendly_endpoints": {
             "visit": "/api/browser/visit",
@@ -119,6 +125,15 @@ async def root():
             "info": "/api/sandbox/info",
             "status": "/api/sandbox/status",
             "env": "/api/sandbox/env"
+        },
+        "pain_analysis_operations": {
+            "store_data": "/api/pain-analysis/store",
+            "get_stats": "/api/pain-analysis/stats",
+            "query_data": "/api/pain-analysis/query",
+            "get_batches": "/api/pain-analysis/batches",
+            "get_content_detail": "/api/pain-analysis/content/{content_id}",
+            "health_check": "/api/pain-analysis/health",
+            "description": "小红书痛点分析数据存储和查询服务，支持批量数据存储、统计分析、条件查询等功能"
         },
         "architecture": {
             "platform": "E2B Cloud Sandbox",

@@ -53,7 +53,7 @@ CREATE TABLE xiaohongshu_pain_analysis (
     -- 商业洞察
     purchase_intent ENUM('高', '中', '低', '无') COMMENT '购买意向',
     recommendation_likelihood ENUM('会推荐', '可能推荐', '不会推荐') COMMENT '推荐可能性',
-    competitor_comparison ENUM('有', '无') COMMENT '是否涉及竞品对比',
+    competitor_comparison VARCHAR(100) COMMENT '是否涉及竞品对比',
     price_sensitivity VARCHAR(50) COMMENT '价格敏感度评估',
     
     -- 系统字段
