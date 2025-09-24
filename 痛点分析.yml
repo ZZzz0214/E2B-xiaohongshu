@@ -1,0 +1,2782 @@
+app:
+  description: 前三步test
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: 痛点分析
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/siliconflow:0.0.23@da2cc8bd076ff081b0c4f69e6d484e3e1e79bd3ad1d937a9c00d9ffdbc8dd14f
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: jaguarliuu/rookie_text2data:1.0.1@283ae7f3c0991a6d64141308b5ff7a3db35c7c02daf46f7e3fd9f5b5826b8b17
+kind: app
+version: 0.3.1
+workflow:
+  conversation_variables:
+  - description: 浏览器自动化持久id
+    id: ff9a590d-489c-43b1-8ec5-dbf504932bb9
+    name: sandbox_persistent_id
+    selector:
+    - conversation
+    - sandbox_persistent_id
+    value: ''
+    value_type: string
+  - description: 沙盒id
+    id: 44269154-0856-4b0d-823f-47d4ca986e72
+    name: e2b_sandbox_id
+    selector:
+    - conversation
+    - e2b_sandbox_id
+    value: ''
+    value_type: string
+  - description: web端可视化链接
+    id: 7f4bd138-c3fe-43af-8c57-c68e0e96fcbb
+    name: vnc_url
+    selector:
+    - conversation
+    - vnc_url
+    value: ''
+    value_type: string
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: if-else
+      id: 1758161689184-source-1758161699773-target
+      source: '1758161689184'
+      sourceHandle: source
+      target: '1758161699773'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1758161699773-true-1758161878601-target
+      source: '1758161699773'
+      sourceHandle: 'true'
+      target: '1758161878601'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1758161878601-source-1758161942859-target
+      source: '1758161878601'
+      sourceHandle: source
+      target: '1758161942859'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1758161942859-source-1758161973215-target
+      source: '1758161942859'
+      sourceHandle: source
+      target: '1758161973215'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: assigner
+      id: 1758161973215-source-1758162086174-target
+      source: '1758161973215'
+      sourceHandle: source
+      target: '1758162086174'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: assigner
+        targetType: answer
+      id: 1758162086174-source-1758162149993-target
+      source: '1758162086174'
+      sourceHandle: source
+      target: '1758162149993'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1758161699773-c0f3df82-ad35-4813-bd3f-25f9b9093657-1758163462476-target
+      source: '1758161699773'
+      sourceHandle: c0f3df82-ad35-4813-bd3f-25f9b9093657
+      target: '1758163462476'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1758163462476-source-1758165386303-target
+      source: '1758163462476'
+      sourceHandle: source
+      target: '1758165386303'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1758161699773-b00c37bc-d10e-4bc8-9e9a-6aa4630d2eb9-1758166451174-target
+      source: '1758161699773'
+      sourceHandle: b00c37bc-d10e-4bc8-9e9a-6aa4630d2eb9
+      target: '1758166451174'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1758166451174-source-1758166512392-target
+      source: '1758166451174'
+      sourceHandle: source
+      target: '1758166512392'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1758165386303-source-1758167829502-target
+      source: '1758165386303'
+      sourceHandle: source
+      target: '1758167829502'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: http-request
+      id: 1758167829502-source-1758250311055-target
+      source: '1758167829502'
+      sourceHandle: source
+      target: '1758250311055'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: answer
+      id: 1758250311055-source-1758250453884-target
+      source: '1758250311055'
+      sourceHandle: source
+      target: '1758250453884'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1758161699773-cc0d9933-882a-4932-88b3-7c58cc89caab-1758253927085-target
+      source: '1758161699773'
+      sourceHandle: cc0d9933-882a-4932-88b3-7c58cc89caab
+      target: '1758253927085'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1758253927085-source-1758258411694-target
+      source: '1758253927085'
+      sourceHandle: source
+      target: '1758258411694'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1758258411694-source-1758258689516-target
+      source: '1758258411694'
+      sourceHandle: source
+      target: '1758258689516'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1758258689516-source-1758259395489-target
+      source: '1758258689516'
+      sourceHandle: source
+      target: '1758259395489'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1758259395489-source-1758262744767-target
+      source: '1758259395489'
+      sourceHandle: source
+      target: '1758262744767'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1758262744767-source-1758266258484-target
+      selected: false
+      source: '1758262744767'
+      sourceHandle: source
+      target: '1758266258484'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: answer
+        targetType: code
+      id: 1758266258484-source-1758559021460-target
+      selected: false
+      source: '1758266258484'
+      sourceHandle: source
+      target: '1758559021460'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1758559021460-source-1758559114075-target
+      selected: false
+      source: '1758559021460'
+      sourceHandle: source
+      target: '1758559114075'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: answer
+      id: 1758559114075-source-1758559121363-target
+      selected: false
+      source: '1758559114075'
+      sourceHandle: source
+      target: '1758559121363'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: http-request
+      id: 1758262744767-source-1758569249717-target
+      selected: false
+      source: '1758262744767'
+      sourceHandle: source
+      target: '1758569249717'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: answer
+      id: 1758569249717-source-1758559121363-target
+      selected: false
+      source: '1758569249717'
+      sourceHandle: source
+      target: '1758559121363'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1758166512392-source-17585942205510-target
+      selected: false
+      source: '1758166512392'
+      sourceHandle: source
+      target: '17585942205510'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 17585942205510-source-17585942499070-target
+      source: '17585942205510'
+      sourceHandle: source
+      target: '17585942499070'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: http-request
+      id: 17585942205510-source-17585942532170-target
+      source: '17585942205510'
+      sourceHandle: source
+      target: '17585942532170'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: answer
+        targetType: code
+      id: 17585942499070-source-17585942586180-target
+      source: '17585942499070'
+      sourceHandle: source
+      target: '17585942586180'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 17585942586180-source-17585942609600-target
+      source: '17585942586180'
+      sourceHandle: source
+      target: '17585942609600'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: answer
+      id: 17585942609600-source-17585942631050-target
+      source: '17585942609600'
+      sourceHandle: source
+      target: '17585942631050'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: answer
+      id: 17585942532170-source-17585942631050-target
+      source: '17585942532170'
+      sourceHandle: source
+      target: '17585942631050'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables: []
+      height: 53
+      id: '1758161689184'
+      position:
+        x: 87
+        y: 335
+      positionAbsolute:
+        x: 87
+        y: 335
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: empty
+            id: 5dcbca32-2155-492c-84f6-efa96e581d61
+            value: ''
+            varType: string
+            variable_selector:
+            - conversation
+            - e2b_sandbox_id
+          - comparison_operator: empty
+            id: 368d7c28-6ba2-413e-b07b-e6151c2abe36
+            value: ''
+            varType: string
+            variable_selector:
+            - conversation
+            - sandbox_persistent_id
+          - comparison_operator: not contains
+            id: 2764e236-dd29-4b60-8e04-3f37a958ed4f
+            value: 分析
+            varType: string
+            variable_selector:
+            - sys
+            - query
+          id: 'true'
+          logical_operator: and
+        - case_id: c0f3df82-ad35-4813-bd3f-25f9b9093657
+          conditions:
+          - comparison_operator: not empty
+            id: 4c219459-6221-4aaf-945b-1b07bcea9aa6
+            value: ''
+            varType: string
+            variable_selector:
+            - conversation
+            - e2b_sandbox_id
+          - comparison_operator: not empty
+            id: 57cc4458-beed-4676-9740-454c2b9463a0
+            value: ''
+            varType: string
+            variable_selector:
+            - conversation
+            - sandbox_persistent_id
+          - comparison_operator: contains
+            id: 7f085ebe-6c60-4d14-b912-e725f3b34aa5
+            value: 搜索
+            varType: string
+            variable_selector:
+            - sys
+            - query
+          id: c0f3df82-ad35-4813-bd3f-25f9b9093657
+          logical_operator: and
+        - case_id: b00c37bc-d10e-4bc8-9e9a-6aa4630d2eb9
+          conditions:
+          - comparison_operator: not empty
+            id: 8b768a49-3fe8-46b6-b52d-5a77f51d85f4
+            value: ''
+            varType: string
+            variable_selector:
+            - conversation
+            - sandbox_persistent_id
+          - comparison_operator: not empty
+            id: 6f549358-b249-49f1-9952-1b33e4825f8b
+            value: ''
+            varType: string
+            variable_selector:
+            - conversation
+            - e2b_sandbox_id
+          - comparison_operator: contains
+            id: ce4c5691-7a48-4e92-ba83-53f3d49d094c
+            value: 查看
+            varType: string
+            variable_selector:
+            - sys
+            - query
+          id: b00c37bc-d10e-4bc8-9e9a-6aa4630d2eb9
+          logical_operator: and
+        - case_id: cc0d9933-882a-4932-88b3-7c58cc89caab
+          conditions:
+          - comparison_operator: contains
+            id: cb7bf453-e348-40f9-96b2-5af1919807d5
+            value: 分析
+            varType: string
+            variable_selector:
+            - sys
+            - query
+          id: cc0d9933-882a-4932-88b3-7c58cc89caab
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 425
+      id: '1758161699773'
+      position:
+        x: 494
+        y: 310
+      positionAbsolute:
+        x: 494
+        y: 310
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json, re\n\ndef main(response_body: str) -> dict:\n    result_data\
+          \ = {\n        \"operations\": [\n            {\n                \"action\"\
+          : \"start_browser\",\n                \"params\": {},\n                \"\
+          description\": \"启动浏览器\"\n            },\n            {\n              \
+          \  \"action\": \"navigate\", \n                \"params\": {\n         \
+          \           \"url\": \"https://www.baidu.com\"\n                },\n   \
+          \             \"description\": \"先访问百度\"\n            },\n            {\n\
+          \                \"action\": \"navigate\",\n                \"params\":\
+          \ {\n                    \"url\": \"https://www.xiaohongshu.com\"\n    \
+          \            },\n                \"description\": \"再访问小红书\"\n         \
+          \   }\n        ],\n        \"persistent\": True,\n        \"auto_cleanup\"\
+          : False\n    }\n    \n    return {\n        \"result\": json.dumps(result_data,\
+          \ ensure_ascii=False)\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行
+        type: code
+        variables:
+        - value_selector:
+          - sys
+          - query
+          value_type: string
+          variable: response_body
+      height: 53
+      id: '1758161878601'
+      position:
+        x: 835.6031134374767
+        y: 300.850199018318
+      positionAbsolute:
+        x: 835.6031134374767
+        y: 300.850199018318
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Complete LLM output containing browser automation instructions
+            ja_JP: Complete LLM output containing browser automation instructions
+            pt_BR: Complete LLM output containing browser automation instructions
+            zh_Hans: 包含浏览器自动化指令的完整LLM输出
+          label:
+            en_US: LLM Output
+            ja_JP: LLM Output
+            pt_BR: LLM Output
+            zh_Hans: LLM输出
+          llm_description: Complete output from previous LLM node containing browser
+            automation instructions and task details
+          max: null
+          min: null
+          name: llm_output
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Browser session ID to reuse existing browser session
+            ja_JP: Browser session ID to reuse existing browser session
+            pt_BR: Browser session ID to reuse existing browser session
+            zh_Hans: 浏览器会话ID，用于复用现有浏览器会话
+          label:
+            en_US: Persistent Session ID
+            ja_JP: Persistent Session ID
+            pt_BR: Persistent Session ID
+            zh_Hans: 持久会话ID
+          llm_description: Optional session ID to continue using an existing browser
+            session instead of creating a new one
+          max: null
+          min: null
+          name: persistent_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          llm_output: ''
+          persistent_id: ''
+        provider_id: sandbox
+        provider_name: sandbox
+        provider_type: builtin
+        selected: false
+        title: 浏览器自动化
+        tool_configurations: {}
+        tool_description: 执行由LLM生成指令的浏览器自动化任务
+        tool_label: 浏览器自动化
+        tool_name: browser_automation
+        tool_node_version: '2'
+        tool_parameters:
+          llm_output:
+            type: mixed
+            value: '{{#1758161878601.result#}}'
+          persistent_id:
+            type: mixed
+            value: null
+        type: tool
+      height: 53
+      id: '1758161942859'
+      position:
+        x: 1208.4693887990343
+        y: 220.51722099326682
+      positionAbsolute:
+        x: 1208.4693887990343
+        y: 220.51722099326682
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json, re\n\ndef main(response_body: str) -> dict:\n    \"\"\"\
+          \n    简单解析E2B沙盒返回的JSON，提取关键信息\n    \"\"\"\n    \n    # 方法1: 直接解析JSON\n \
+          \   try:\n        data = json.loads(response_body.strip())\n        \n \
+          \       # 提取字段\n        persistent_id = data.get(\"persistent_id\", \"\"\
+          )\n        e2b_sandbox_id = data.get(\"e2b_sandbox_id\", \"\")\n       \
+          \ \n        # 提取VNC URL\n        vnc_access = data.get(\"vnc_access\", {})\n\
+          \        vnc_url = \"\"\n        if isinstance(vnc_access, dict):\n    \
+          \        vnc_url = vnc_access.get(\"vnc_web_url\", \"\")\n        \n   \
+          \     return {\n            \"persistent_id\": persistent_id,\n        \
+          \    \"e2b_sandbox_id\": e2b_sandbox_id,\n            \"vnc_url\": vnc_url\n\
+          \        }\n        \n    except:\n        # 方法2: 正则兜底\n        persistent_id\
+          \ = \"\"\n        e2b_sandbox_id = \"\"\n        vnc_url = \"\"\n      \
+          \  \n        # 正则匹配\n        m = re.search(r'\"persistent_id\":\\s*\"([^\"\
+          ]+)\"', response_body)\n        if m: persistent_id = m.group(1)\n     \
+          \   \n        m = re.search(r'\"e2b_sandbox_id\":\\s*\"([^\"]+)\"', response_body)\n\
+          \        if m: e2b_sandbox_id = m.group(1)\n        \n        m = re.search(r'\"\
+          vnc_web_url\":\\s*\"([^\"]+)\"', response_body)\n        if m: vnc_url =\
+          \ m.group(1)\n        \n        return {\n            \"persistent_id\"\
+          : persistent_id,\n            \"e2b_sandbox_id\": e2b_sandbox_id,\n    \
+          \        \"vnc_url\": vnc_url\n        }"
+        code_language: python3
+        desc: ''
+        outputs:
+          e2b_sandbox_id:
+            children: null
+            type: string
+          persistent_id:
+            children: null
+            type: string
+          vnc_url:
+            children: null
+            type: string
+        selected: false
+        title: 解析沙盒返回
+        type: code
+        variables:
+        - value_selector:
+          - '1758161942859'
+          - text
+          value_type: string
+          variable: response_body
+      height: 53
+      id: '1758161973215'
+      position:
+        x: 1708.6558557474661
+        y: 181.10859026399652
+      positionAbsolute:
+        x: 1708.6558557474661
+        y: 181.10859026399652
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1758161973215'
+          - e2b_sandbox_id
+          variable_selector:
+          - conversation
+          - e2b_sandbox_id
+          write_mode: over-write
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1758161973215'
+          - persistent_id
+          variable_selector:
+          - conversation
+          - sandbox_persistent_id
+          write_mode: over-write
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1758161973215'
+          - vnc_url
+          variable_selector:
+          - conversation
+          - vnc_url
+          write_mode: over-write
+        selected: false
+        title: 变量赋值
+        type: assigner
+        version: '2'
+      height: 137
+      id: '1758162086174'
+      position:
+        x: 2054.239232911837
+        y: 168.98285773191327
+      positionAbsolute:
+        x: 2054.239232911837
+        y: 168.98285773191327
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: 已导航到小红书页面，请使用 {{#conversation.vnc_url#}}  在小红书页面进行登录，登录完之后在开始进行下一步
+        desc: ''
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 137
+      id: '1758162149993'
+      position:
+        x: 2445.29410707152
+        y: 167.46714116540284
+      positionAbsolute:
+        x: 2445.29410707152
+        y: 167.46714116540284
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-ai/DeepSeek-V3
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 516cc1d6-c92b-42de-bf7c-a94fc75ad7a1
+          role: system
+          text: "你是一个小红书自动化操作的API参数生成器。仅输出严格的JSON格式，不包含任何解释、代码块标记或其他文字。\n\n用户输入：{{#sys.query#}}\n\
+            \n任务：分析用户输入，提取出要搜索的关键词，然后在小红书中执行搜索、滚动加载帖子并提取数据存储到数据库。\n\n当前会话ID：{{#conversation.sandbox_persistent_id#}}\n\
+            \n请严格按以下JSON格式输出：\n\n{\n  \"operations\": [\n    {\n      \"action\":\
+            \ \"click_selector\",\n      \"params\": {\n        \"selector\": \"input[placeholder*='搜索'],\
+            \ .search-input\"\n      },\n      \"description\": \"点击搜索框\"\n    },\n\
+            \    {\n      \"action\": \"type_text\", \n      \"params\": {\n     \
+            \   \"selector\": \"input[placeholder*='搜索'], .search-input\",\n     \
+            \   \"text\": \"从用户输入中提取的搜索关键词\"\n      },\n      \"description\": \"\
+            输入搜索关键词\"\n    },\n    {\n      \"action\": \"click_selector\",\n    \
+            \  \"params\": {\n        \"selector\": \".search-icon, [class*='search-btn'],\
+            \ button[type='submit']\"\n      },\n      \"description\": \"执行搜索\"\n\
+            \    },\n    {\n      \"action\": \"xiaohongshu_auto_scroll\",\n     \
+            \ \"params\": {\n        \"max_scrolls\": 20,\n        \"delay_between_scrolls\"\
+            : 2.0\n      },\n      \"description\": \"滚动加载更多帖子\"\n    },\n    {\n\
+            \      \"action\": \"xiaohongshu_extract_all_posts\",\n      \"params\"\
+            : {\n        \"limit\": 30,\n      },\n      \"description\": \"提取帖子并自动存储到数据库\"\
+            \n    }\n  ],\n  \"persistent_id\": \"{{#conversation.sandbox_persistent_id#}}\"\
+            ,\n  \"auto_cleanup\": false\n}\n\n要求：\n1. 从用户输入中智能提取核心搜索关键词\n2. 使用实际的会话ID替换模板变量\n\
+            3. 严格按JSON格式输出，不要任何额外文字\n4. 确保提取的关键词简洁且符合搜索习惯\n5. 同时在text和search_keyword参数中使用相同的关键词"
+        selected: false
+        title: 提取关键词页面帖子
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1758163462476'
+      position:
+        x: 845.9595319569936
+        y: 434.66010500526045
+      positionAbsolute:
+        x: 845.9595319569936
+        y: 434.66010500526045
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Complete LLM output containing browser automation instructions
+            ja_JP: Complete LLM output containing browser automation instructions
+            pt_BR: Complete LLM output containing browser automation instructions
+            zh_Hans: 包含浏览器自动化指令的完整LLM输出
+          label:
+            en_US: LLM Output
+            ja_JP: LLM Output
+            pt_BR: LLM Output
+            zh_Hans: LLM输出
+          llm_description: Complete output from previous LLM node containing browser
+            automation instructions and task details
+          max: null
+          min: null
+          name: llm_output
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Browser session ID to reuse existing browser session
+            ja_JP: Browser session ID to reuse existing browser session
+            pt_BR: Browser session ID to reuse existing browser session
+            zh_Hans: 浏览器会话ID，用于复用现有浏览器会话
+          label:
+            en_US: Persistent Session ID
+            ja_JP: Persistent Session ID
+            pt_BR: Persistent Session ID
+            zh_Hans: 持久会话ID
+          llm_description: Optional session ID to continue using an existing browser
+            session instead of creating a new one
+          max: null
+          min: null
+          name: persistent_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          llm_output: ''
+          persistent_id: ''
+        provider_id: sandbox
+        provider_name: sandbox
+        provider_type: builtin
+        selected: false
+        title: 浏览器自动化
+        tool_configurations: {}
+        tool_description: 执行由LLM生成指令的浏览器自动化任务
+        tool_label: 浏览器自动化
+        tool_name: browser_automation
+        tool_node_version: '2'
+        tool_parameters:
+          llm_output:
+            type: mixed
+            value: '{{#1758163462476.text#}}'
+          persistent_id:
+            type: mixed
+            value: '{{#conversation.sandbox_persistent_id#}}'
+        type: tool
+      height: 53
+      id: '1758165386303'
+      position:
+        x: 1208.4693887990343
+        y: 434.66010500526045
+      positionAbsolute:
+        x: 1208.4693887990343
+        y: 434.66010500526045
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-ai/DeepSeek-V3
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 0903bbb4-89ba-4a1a-8bf9-be0d75e372c9
+          role: system
+          text: "你是一个小红书帖子详情提取的API参数生成器。仅输出严格的JSON格式，不包含任何解释、代码块标记或其他文字。\n\n## 输入信息\n\
+            用户输入：{{#sys.query#}}\n当前会话ID：{{#conversation.sandbox_persistent_id#}}\n\
+            \n## 任务说明\n直接从用户输入中提取帖子标题，生成点击该帖子并提取内容的操作指令。\n\n## 标题提取策略\n1. **完整标题识别**：如果用户提供了完整标题，直接使用\n\
+            2. **关键词提取**：从\"打开XXX帖子\"中提取XXX\n3. **去除修饰词**：去掉\"打开\"、\"查看\"、\"标题\"、\"\
+            的帖子\"等\n4. **保留特殊符号**：保持emoji、感叹号等原有格式\n\n## 提取示例\n- 输入：\"打开标题圆盘胸宽胸距专属Bra‼️治好了我10年的空杯\"\
+            \n  提取：\"圆盘胸宽胸距专属Bra‼️治好了我10年的空杯\"\n\n- 输入：\"查看内衣聚拢的帖子内容\"\n  提取：\"内衣聚拢\"\
+            \n\n- 输入：\"打开求求不要停产！\U0001F62D20\U0001F4B0的内衣聚拢还显圆！！⚠️\"\n  提取：\"求求不要停产！\U0001F62D\
+            20\U0001F4B0的内衣聚拢还显圆！！⚠️\"\n\n请严格按以下JSON格式输出：\n\n{\n  \"operations\":\
+            \ [\n {\n      \"action\": \"click_selector\",\n      \"params\": {\n\
+            \        \"selector\": \"input[placeholder*='搜索'], .search-input\"\n \
+            \     },\n      \"description\": \"点击搜索框\"\n    },\n    {\n      \"action\"\
+            : \"type_text\", \n      \"params\": {\n        \"selector\": \"input[placeholder*='搜索'],\
+            \ .search-input\",\n        \"text\": \"从用户输入中准确提取的帖子标题\"\n      },\n\
+            \      \"description\": \"输入搜索关键词\"\n    },\n    {\n      \"action\":\
+            \ \"click_selector\",\n      \"params\": {\n        \"selector\": \".search-icon,\
+            \ [class*='search-btn'], button[type='submit']\"\n      },\n      \"description\"\
+            : \"执行搜索\"\n    },\n    {\n      \"action\": \"xiaohongshu_auto_scroll\"\
+            ,\n      \"params\": {\n        \"max_scrolls\": 5,\n        \"delay_between_scrolls\"\
+            : 2.0\n      },\n      \"description\": \"滚动加载更多帖子\"\n    },\n    {\n\
+            \      \"action\": \"xiaohongshu_click_post\",\n      \"params\": {\n\
+            \        \"title\": \"从用户输入中准确提取的帖子标题\"\n      },\n      \"description\"\
+            : \"点击用户指定的帖子进入详情页\"\n    },\n    {\n      \"action\": \"xiaohongshu_expand_comments\"\
+            ,\n      \"params\": {\n        \"max_attempts\": 10\n      },\n     \
+            \ \"description\": \"展开所有评论\"\n    },\n    {\n      \"action\": \"xiaohongshu_extract_comments\"\
+            ,\n      \"params\": {\n        \"include_replies\": true,\n        \"\
+            save_to_database\": true\n      },\n      \"description\": \"提取帖子内容和所有评论数据并存储到数据库\"\
+            \n    }\n  ],\n  \"persistent_id\": \"{{#conversation.sandbox_persistent_id#}}\"\
+            ,\n  \"auto_cleanup\": false\n}\n\n要求：\n1. 从用户输入中智能提取帖子标题，保持准确性\n2. 使用实际的会话ID替换模板变量\n\
+            3. 严格按JSON格式输出，不要任何额外文字\n4. 确保提取的标题能准确匹配实际帖子"
+        selected: false
+        title: 查看具体帖子内容
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1758166451174'
+      position:
+        x: 870.2409859183988
+        y: 608.409034733829
+      positionAbsolute:
+        x: 870.2409859183988
+        y: 608.409034733829
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Complete LLM output containing browser automation instructions
+            ja_JP: Complete LLM output containing browser automation instructions
+            pt_BR: Complete LLM output containing browser automation instructions
+            zh_Hans: 包含浏览器自动化指令的完整LLM输出
+          label:
+            en_US: LLM Output
+            ja_JP: LLM Output
+            pt_BR: LLM Output
+            zh_Hans: LLM输出
+          llm_description: Complete output from previous LLM node containing browser
+            automation instructions and task details
+          max: null
+          min: null
+          name: llm_output
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Browser session ID to reuse existing browser session
+            ja_JP: Browser session ID to reuse existing browser session
+            pt_BR: Browser session ID to reuse existing browser session
+            zh_Hans: 浏览器会话ID，用于复用现有浏览器会话
+          label:
+            en_US: Persistent Session ID
+            ja_JP: Persistent Session ID
+            pt_BR: Persistent Session ID
+            zh_Hans: 持久会话ID
+          llm_description: Optional session ID to continue using an existing browser
+            session instead of creating a new one
+          max: null
+          min: null
+          name: persistent_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          llm_output: ''
+          persistent_id: ''
+        provider_id: sandbox
+        provider_name: sandbox
+        provider_type: builtin
+        selected: false
+        title: 浏览器自动化
+        tool_configurations: {}
+        tool_description: 执行由LLM生成指令的浏览器自动化任务
+        tool_label: 浏览器自动化
+        tool_name: browser_automation
+        tool_node_version: '2'
+        tool_parameters:
+          llm_output:
+            type: mixed
+            value: '{{#1758166451174.text#}}'
+          persistent_id:
+            type: mixed
+            value: '{{#conversation.sandbox_persistent_id#}}'
+        type: tool
+      height: 53
+      id: '1758166512392'
+      position:
+        x: 1219.4452858374975
+        y: 675.9929603067656
+      positionAbsolute:
+        x: 1219.4452858374975
+        y: 675.9929603067656
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-ai/DeepSeek-V3
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: d0f5c592-88de-4a71-97f2-d6ec60159d9a
+          role: system
+          text: "你是小红书内容分析专家，负责对内衣相关帖子进行精准分类标注。\n\n## \U0001F4CA 待分析数据\n{{#1758165386303.text#}}\n\
+            \n## \U0001F3F7️ 分类标准（按优先级排序）\n\n### \U0001F947 优先级1：测评\n- **特征**：详细产品使用体验、对比测试、客观分析\n\
+            - **关键词**：测评、实测、对比、使用感受、亲测、体验报告\n- **内容**：包含具体使用数据、多产品对比、优缺点分析\n\n###\
+            \ \U0001F948 优先级2：推荐\n- **特征**：正面推荐某个品牌/产品、种草内容\n- **关键词**：推荐、种草、好用、值得买、必入、强推\n\
+            - **内容**：重点强调产品优点和购买理由\n\n### \U0001F949 优先级3：避雷\n- **特征**：提醒避免某些产品/品牌、负面警告\n\
+            - **关键词**：避雷、不推荐、踩雷、别买、慎入、雷区\n- **内容**：重点说明产品缺点和风险提醒\n\n### \U0001F3C5\
+            \ 优先级4：踩坑\n- **特征**：分享购买或使用过程中的具体负面经历\n- **关键词**：踩坑、被坑、后悔、翻车、教训、上当\n-\
+            \ **内容**：个人不良体验的详细分享\n\n### \U0001F3AF 优先级5：问询互动\n- **特征**：求助、提问或征求意见\n\
+            - **关键词**：求助、怎么选、哪个好、姐妹们、有人用过吗、求推荐\n- **内容**：以疑问句为主，征求他人建议\n\n### \U0001F4DD\
+            \ 兜底分类：个人笔记\n- **特征**：个人心得、日常分享、知识科普\n- **关键词**：笔记、心得、科普、分享、日常、总结\n- **内容**：非商业化的个人经验或知识整理\n\
+            \n### ⚠️ 特殊分类：\n**PROMOTIONAL (推广)**：明显商业推广（作者名含工作室、shop、店铺等）\n**INVALID\
+            \ (无效)**：与内衣无关、垃圾信息、数据不完整\n\n## \U0001F4CB 输出要求\n\n只输出JSON数组，每个帖子一条记录，格式：\n\
+            \n```json\n[\n  {\n    \"post_id\": \"6834673b00000000220364f3\",\n  \
+            \  \"author_id\": \"67fe2398000000000a03d7c2\", \n    \"author_name\"\
+            : \"小红薯测评师\",\n    \"title\": \"5款无钢圈内衣深度测评｜舒适度排名来了\", \n    \"classification\"\
+            : \"测评\",\n    \"confidence_score\": 0.95,\n    \"reasoning\": \"标题明确提到'深度测评'和'排名'，内容符合测评类特征，优先级最高\"\
+            ,\n    \"commercial_value\": \"LOW\",\n    \"need_ai_analysis\": false\n\
+            \  }\n]\n```\n\n## \U0001F3AF 分类判断流程\n1. **首先排除**：检查是否为PROMOTIONAL或INVALID\n\
+            2. **按优先级判断**：从测评→推荐→避雷→踩坑→问询互动的顺序进行判断\n3. **符合条件即分类**：一旦符合某个优先级的特征，立即归类\n\
+            4. **兜底处理**：都不符合时归为PERSONAL_NOTE\n5. **置信度评估**：不确定的标记need_ai_analysis为true\n\
+            \n请严格按照优先级顺序分析每个帖子，输出完整JSON数组。"
+        selected: false
+        structured_output_enabled: true
+        title: LLM 3
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1758167829502'
+      position:
+        x: 1708.6558557474661
+        y: 452.8573905989234
+      positionAbsolute:
+        x: 1708.6558557474661
+        y: 452.8573905989234
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-352
+            key: ''
+            type: text
+            value: '{{#1758167829502.text#}}'
+          type: json
+        desc: ''
+        headers: 'Content-Type:application/json
+
+          Accept:application/json'
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 存到classfication表
+        type: http-request
+        url: http://192.168.32.2:8989/api/browser/store-post-classification
+        variables: []
+      height: 155
+      id: '1758250311055'
+      position:
+        x: 2157.1549408196365
+        y: 440.8192901648683
+      positionAbsolute:
+        x: 2157.1549408196365
+        y: 440.8192901648683
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: 'LLM处理结果：
+
+          {{#1758167829502.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 3
+        type: answer
+        variables: []
+      height: 104
+      id: '1758250453884'
+      position:
+        x: 2567.4674804332667
+        y: 434.66010500526045
+      positionAbsolute:
+        x: 2567.4674804332667
+        y: 434.66010500526045
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Database type
+            ja_JP: Database type
+            pt_BR: Database type
+            zh_Hans: 数据库类型
+          label:
+            en_US: Database type
+            ja_JP: Database type
+            pt_BR: Database type
+            zh_Hans: 数据库类型
+          llm_description: Database type
+          max: null
+          min: null
+          name: db_type
+          options:
+          - icon: ''
+            label:
+              en_US: MySQL
+              ja_JP: MySQL
+              pt_BR: MySQL
+              zh_Hans: MySQL
+            value: mysql
+          - icon: ''
+            label:
+              en_US: PostgreSQL
+              ja_JP: PostgreSQL
+              pt_BR: PostgreSQL
+              zh_Hans: PostgreSQL
+            value: postgresql
+          - icon: ''
+            label:
+              en_US: SQL Server
+              ja_JP: SQL Server
+              pt_BR: SQL Server
+              zh_Hans: SQL Server
+            value: sqlserver
+          - icon: ''
+            label:
+              en_US: Oracle
+              ja_JP: Oracle
+              pt_BR: Oracle
+              zh_Hans: Oracle
+            value: oracle
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: limit
+            ja_JP: limit
+            pt_BR: limit
+            zh_Hans: SQL返回数据量限制
+          label:
+            en_US: limit
+            ja_JP: limit
+            pt_BR: limit
+            zh_Hans: SQL返回数据量限制
+          llm_description: limit
+          max: 100000
+          min: 1
+          name: limit
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: json
+          form: llm
+          human_description:
+            en_US: result_format
+            ja_JP: result_format
+            pt_BR: result_format
+            zh_Hans: 返回数据格式
+          label:
+            en_US: result_format
+            ja_JP: result_format
+            pt_BR: result_format
+            zh_Hans: 返回数据格式
+          llm_description: result_format
+          max: null
+          min: null
+          name: result_format
+          options:
+          - icon: ''
+            label:
+              en_US: JSON
+              ja_JP: JSON
+              pt_BR: JSON
+              zh_Hans: JSON
+            value: json
+          - icon: ''
+            label:
+              en_US: TEXT
+              ja_JP: TEXT
+              pt_BR: TEXT
+              zh_Hans: TEXT
+            value: text
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Database ip/host
+            ja_JP: Database ip/host
+            pt_BR: Database ip/host
+            zh_Hans: 数据库IP/域名
+          label:
+            en_US: Database ip/host
+            ja_JP: Database ip/host
+            pt_BR: Database ip/host
+            zh_Hans: 数据库IP/域名
+          llm_description: Database ip/host
+          max: null
+          min: null
+          name: host
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Database port
+            ja_JP: Database port
+            pt_BR: Database port
+            zh_Hans: 数据库端口
+          label:
+            en_US: Database port
+            ja_JP: Database port
+            pt_BR: Database port
+            zh_Hans: 数据库端口
+          llm_description: Database port
+          max: 65535
+          min: 1
+          name: port
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Database name
+            ja_JP: Database name
+            pt_BR: Database name
+            zh_Hans: 数据库名称
+          label:
+            en_US: Database name
+            ja_JP: Database name
+            pt_BR: Database name
+            zh_Hans: 数据库名称
+          llm_description: Database name
+          max: null
+          min: null
+          name: db_name
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: table_names
+            ja_JP: table_names
+            pt_BR: table_names
+            zh_Hans: 数据表名称
+          label:
+            en_US: table_names
+            ja_JP: table_names
+            pt_BR: table_names
+            zh_Hans: 数据表名称
+          llm_description: table_names
+          max: null
+          min: null
+          name: table_names
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Schema name
+            ja_JP: Schema name
+            pt_BR: Schema name
+            zh_Hans: 数据库Schema PGSQL用户选填，默认为public
+          label:
+            en_US: Schema name
+            ja_JP: Schema name
+            pt_BR: Schema name
+            zh_Hans: 数据库Schema PGSQL用户选填，默认为public
+          llm_description: Schema name
+          max: null
+          min: null
+          name: schema_name
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Username
+            ja_JP: Username
+            pt_BR: Username
+            zh_Hans: 用户名
+          label:
+            en_US: Username
+            ja_JP: Username
+            pt_BR: Username
+            zh_Hans: 用户名
+          llm_description: Username
+          max: null
+          min: null
+          name: username
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Password
+            ja_JP: Password
+            pt_BR: Password
+            zh_Hans: 密码
+          label:
+            en_US: Password
+            ja_JP: Password
+            pt_BR: Password
+            zh_Hans: 密码
+          llm_description: Password
+          max: null
+          min: null
+          name: password
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: secret-input
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: LLM model for text2data.
+            ja_JP: LLM model for text2data.
+            pt_BR: LLM model for text2data.
+            zh_Hans: LLM model for text2data.
+          label:
+            en_US: Model
+            ja_JP: Model
+            pt_BR: Model
+            zh_Hans: 模型
+          llm_description: LLM model for text2data.
+          max: null
+          min: null
+          name: model
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: llm
+          template: null
+          type: model-selector
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Fetching data from the database using natural language.
+            ja_JP: Fetching data from the database using natural language.
+            pt_BR: Fetching data from the database using natural language.
+            zh_Hans: Fetching data from the database using natural language.
+          label:
+            en_US: Query string
+            ja_JP: Query string
+            pt_BR: Query string
+            zh_Hans: 查询语句
+          llm_description: Fetching data from the database using natural language.
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: custom_prompt
+            ja_JP: custom_prompt
+            pt_BR: custom_prompt
+            zh_Hans: 自定义提示
+          label:
+            en_US: custom_prompt
+            ja_JP: custom_prompt
+            pt_BR: custom_prompt
+            zh_Hans: 自定义提示
+          llm_description: custom_prompt
+          max: null
+          min: null
+          name: custom_prompt
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: with_comment
+            ja_JP: with_comment
+            pt_BR: with_comment
+            zh_Hans: 是否包含注释
+          label:
+            en_US: with_comment
+            ja_JP: with_comment
+            pt_BR: with_comment
+            zh_Hans: 是否包含注释
+          llm_description: with_comment
+          max: null
+          min: null
+          name: with_comment
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        params:
+          custom_prompt: ''
+          db_name: ''
+          db_type: ''
+          host: ''
+          limit: ''
+          model: ''
+          password: ''
+          port: ''
+          query: ''
+          result_format: ''
+          schema_name: ''
+          table_names: ''
+          username: ''
+          with_comment: ''
+        provider_id: jaguarliuu/rookie_text2data/rookie_text2data
+        provider_name: jaguarliuu/rookie_text2data/rookie_text2data
+        provider_type: builtin
+        selected: true
+        title: 找到对应类别的帖子
+        tool_configurations:
+          model:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: deepseek-ai/DeepSeek-V3
+              model_type: llm
+              provider: langgenius/siliconflow/siliconflow
+          with_comment:
+            type: constant
+            value: null
+        tool_description: 使用自然语言从MySQL获取数据
+        tool_label: rookie_text2data
+        tool_name: rookie_text2data
+        tool_node_version: '2'
+        tool_parameters:
+          custom_prompt:
+            type: mixed
+            value: "你是一名 MySQL 专家，只返回一行可直接执行的 SQL 语句，禁止任何解释、注释或 Markdown。\n\n【任务】\
+              \  \n1. 从用户中文描述中提取核心意图关键词：  \n   - 若出现“测评/评测/横评/开箱/深度评测”等 → 意图＝测评  \n\
+              \   - 若出现“推荐/种草/安利”等 → 意图＝推荐  \n   - 若出现“穿搭” → 意图＝穿搭  \n   - 若出现“美食”\
+              \ → 意图＝美食  \n   -若出现分析避雷的帖子→ 意图=避雷\n2. 用 LIKE 模糊匹配字典值：  \n   classification\
+              \ LIKE '%关键词%'  \n3. 生成 SQL：  \n   SELECT *  \n   FROM xiaohongshu_content_classification\
+              \  \n   WHERE classification LIKE '%关键词%'  \n   ORDER BY created_at\
+              \ DESC  \n   LIMIT 1;\n4.限制为获取1条\n5.需要这一条数据的全部字段\n\n【规则】  \n- 表名固定，禁止改表名、JOIN、子查询。\
+              \  \n- 不得把用户原文直接拼进 SQL；只能用上述关键词。  \n- 若描述与任何已知意图无关，返回空字符串。  \n- 输出唯一一行，可执行，无分号外字符。\n\
+              \n【示例】  \n用户：分析推荐的帖子  \n→  \nSELECT * FROM xiaohongshu_content_classification\
+              \ WHERE classification LIKE '%推荐%' ORDER BY created_at DESC LIMIT 1\n\
+              用户：分析问询互动的帖子  \n→  \nSELECT * FROM xiaohongshu_content_classification\
+              \ WHERE classification LIKE '%问询互动%' ORDER BY created_at DESC LIMIT\
+              \ 1"
+          db_name:
+            type: mixed
+            value: e2b_server_data
+          db_type:
+            type: constant
+            value: mysql
+          host:
+            type: mixed
+            value: 192.168.32.2
+          limit:
+            type: constant
+            value: 999
+          password:
+            type: mixed
+            value: '123456'
+          port:
+            type: constant
+            value: 13306
+          query:
+            type: mixed
+            value: '{{#sys.query#}}'
+          result_format:
+            type: constant
+            value: text
+          schema_name:
+            type: mixed
+            value: null
+          table_names:
+            type: mixed
+            value: xiaohongshu_content_classification
+          username:
+            type: mixed
+            value: root
+        type: tool
+      height: 115
+      id: '1758253927085'
+      position:
+        x: 870.2409859183988
+        y: 812.7990420494017
+      positionAbsolute:
+        x: 870.2409859183988
+        y: 812.7990420494017
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Database type
+            ja_JP: Database type
+            pt_BR: Database type
+            zh_Hans: 数据库类型
+          label:
+            en_US: Database type
+            ja_JP: Database type
+            pt_BR: Database type
+            zh_Hans: 数据库类型
+          llm_description: Database type
+          max: null
+          min: null
+          name: db_type
+          options:
+          - icon: ''
+            label:
+              en_US: MySQL
+              ja_JP: MySQL
+              pt_BR: MySQL
+              zh_Hans: MySQL
+            value: mysql
+          - icon: ''
+            label:
+              en_US: PostgreSQL
+              ja_JP: PostgreSQL
+              pt_BR: PostgreSQL
+              zh_Hans: PostgreSQL
+            value: postgresql
+          - icon: ''
+            label:
+              en_US: SQL Server
+              ja_JP: SQL Server
+              pt_BR: SQL Server
+              zh_Hans: SQL Server
+            value: sqlserver
+          - icon: ''
+            label:
+              en_US: Oracle
+              ja_JP: Oracle
+              pt_BR: Oracle
+              zh_Hans: Oracle
+            value: oracle
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Database ip/host
+            ja_JP: Database ip/host
+            pt_BR: Database ip/host
+            zh_Hans: 数据库IP/域名
+          label:
+            en_US: Database ip/host
+            ja_JP: Database ip/host
+            pt_BR: Database ip/host
+            zh_Hans: 数据库IP/域名
+          llm_description: Database ip/host
+          max: null
+          min: null
+          name: host
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Database port
+            ja_JP: Database port
+            pt_BR: Database port
+            zh_Hans: 数据库端口
+          label:
+            en_US: Database port
+            ja_JP: Database port
+            pt_BR: Database port
+            zh_Hans: 数据库端口
+          llm_description: Database port
+          max: 65535
+          min: 1
+          name: port
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Database name
+            ja_JP: Database name
+            pt_BR: Database name
+            zh_Hans: 数据库名称
+          label:
+            en_US: Database name
+            ja_JP: Database name
+            pt_BR: Database name
+            zh_Hans: 数据库名称
+          llm_description: Database name
+          max: null
+          min: null
+          name: db_name
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Username
+            ja_JP: Username
+            pt_BR: Username
+            zh_Hans: 用户名
+          label:
+            en_US: Username
+            ja_JP: Username
+            pt_BR: Username
+            zh_Hans: 用户名
+          llm_description: Username
+          max: null
+          min: null
+          name: username
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Password
+            ja_JP: Password
+            pt_BR: Password
+            zh_Hans: 密码
+          label:
+            en_US: Password
+            ja_JP: Password
+            pt_BR: Password
+            zh_Hans: 密码
+          llm_description: Password
+          max: null
+          min: null
+          name: password
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: secret-input
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Schema name
+            ja_JP: Schema name
+            pt_BR: Schema name
+            zh_Hans: 数据库Schema PGSQL用户选填，默认为public
+          label:
+            en_US: Schema name
+            ja_JP: Schema name
+            pt_BR: Schema name
+            zh_Hans: 数据库Schema PGSQL用户选填，默认为public
+          llm_description: Schema name
+          max: null
+          min: null
+          name: schema
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Fetching data from the database using natural language.
+            ja_JP: Fetching data from the database using natural language.
+            pt_BR: Fetching data from the database using natural language.
+            zh_Hans: Fetching data from the database using natural language.
+          label:
+            en_US: SQL string
+            ja_JP: SQL string
+            pt_BR: SQL string
+            zh_Hans: 待执行的 SQL 语句
+          llm_description: Fetching data from the database using natural language.
+          max: null
+          min: null
+          name: sql
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: json
+          form: llm
+          human_description:
+            en_US: result_format
+            ja_JP: result_format
+            pt_BR: result_format
+            zh_Hans: 返回数据格式
+          label:
+            en_US: result_format
+            ja_JP: result_format
+            pt_BR: result_format
+            zh_Hans: 返回数据格式
+          llm_description: result_format
+          max: null
+          min: null
+          name: result_format
+          options:
+          - icon: ''
+            label:
+              en_US: JSON
+              ja_JP: JSON
+              pt_BR: JSON
+              zh_Hans: JSON
+            value: json
+          - icon: ''
+            label:
+              en_US: TEXT
+              ja_JP: TEXT
+              pt_BR: TEXT
+              zh_Hans: TEXT
+            value: text
+          - icon: ''
+            label:
+              en_US: CSV
+              ja_JP: CSV
+              pt_BR: CSV
+              zh_Hans: CSV
+            value: csv
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          db_name: ''
+          db_type: ''
+          host: ''
+          password: ''
+          port: ''
+          result_format: ''
+          schema: ''
+          sql: ''
+          username: ''
+        provider_id: jaguarliuu/rookie_text2data/rookie_text2data
+        provider_name: jaguarliuu/rookie_text2data/rookie_text2data
+        provider_type: builtin
+        selected: false
+        title: SQL执行
+        tool_configurations: {}
+        tool_description: sql 执行器
+        tool_label: rookie_excute_sql
+        tool_name: rookie_excute_sql
+        tool_node_version: '2'
+        tool_parameters:
+          db_name:
+            type: mixed
+            value: e2b_server_data
+          db_type:
+            type: constant
+            value: mysql
+          host:
+            type: mixed
+            value: 192.168.32.2
+          password:
+            type: mixed
+            value: '123456'
+          port:
+            type: constant
+            value: 13306
+          result_format:
+            type: constant
+            value: text
+          schema:
+            type: mixed
+            value: null
+          sql:
+            type: mixed
+            value: '{{#1758253927085.text#}}'
+          username:
+            type: mixed
+            value: root
+        type: tool
+      height: 53
+      id: '1758258411694'
+      position:
+        x: 1313.4922436231382
+        y: 953.9257349967983
+      positionAbsolute:
+        x: 1313.4922436231382
+        y: 953.9257349967983
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-ai/DeepSeek-V3
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 2ee61363-c231-4efe-a376-241f1bd25c87
+          role: system
+          text: "你是一个小红书帖子详情提取的 API 参数生成器。仅输出严格的 JSON 格式，不包含任何解释、代码块标记或其他文字,最外层要有```json包裹。\n\
+            \n## 输入信息\n上游节点输出：’{{#1758258411694.text#}}‘\n当前会话ID：`{{#conversation.sandbox_persistent_id#}}`\n\
+            \n## 任务说明\n从上游节点输出的内容中提取字段 `title`，生成点击该帖子并提取内容的操作指令。\n\n## 提取规则\n1. 解析上游\
+            \ JSON，取字段 `title` 的值  \n2. 保持原文，包括 emoji、符号、空格  \n3. 若缺失 `title`，返回空字符串\
+            \ `\"\"`\n\n请严格按以下JSON格式输出：\n{\n  \"operations\": [\n {\n      \"action\"\
+            : \"click_selector\",\n      \"params\": {\n        \"selector\": \"input[placeholder*='搜索'],\
+            \ .search-input\"\n      },\n      \"description\": \"点击搜索框\"\n    },\n\
+            \    {\n      \"action\": \"type_text\", \n      \"params\": {\n     \
+            \   \"selector\": \"input[placeholder*='搜索'], .search-input\",\n     \
+            \   \"text\": \"上游节点获取的title数据\"\n      },\n      \"description\": \"\
+            输入搜索关键词\"\n    },\n    {\n      \"action\": \"click_selector\",\n    \
+            \  \"params\": {\n        \"selector\": \".search-icon, [class*='search-btn'],\
+            \ button[type='submit']\"\n      },\n      \"description\": \"执行搜索\"\n\
+            \    },\n    {\n      \"action\": \"xiaohongshu_auto_scroll\",\n     \
+            \ \"params\": {\n        \"max_scrolls\": 5,\n        \"delay_between_scrolls\"\
+            : 2.0\n      },\n      \"description\": \"滚动加载更多帖子\"\n    },\n    {\n\
+            \      \"action\": \"xiaohongshu_click_post\",\n      \"params\": {\n\
+            \        \"title\": \"上游节点获取的title数据\"\n      },\n      \"description\"\
+            : \"点击用户指定的帖子进入详情页\"\n    },\n    {\n      \"action\": \"xiaohongshu_expand_comments\"\
+            ,\n      \"params\": {\n        \"max_attempts\": 10\n      },\n     \
+            \ \"description\": \"展开所有评论\"\n    },\n    {\n      \"action\": \"xiaohongshu_extract_comments\"\
+            ,\n      \"params\": {\n        \"include_replies\": true,\n        \"\
+            save_to_database\": true\n      },\n      \"description\": \"提取帖子内容和所有评论数据并存储到数据库\"\
+            \n    }\n  ],\n  \"persistent_id\": \"{{#conversation.sandbox_persistent_id#}}\"\
+            ,\n  \"auto_cleanup\": false\n}\n\n要求：\n1. 严格按JSON格式输出，不要任何额外文字"
+        selected: false
+        title: 帖子详细内容获取
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1758258689516'
+      position:
+        x: 1708.6558557474661
+        y: 980.7649482301672
+      positionAbsolute:
+        x: 1708.6558557474661
+        y: 980.7649482301672
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Complete LLM output containing browser automation instructions
+            ja_JP: Complete LLM output containing browser automation instructions
+            pt_BR: Complete LLM output containing browser automation instructions
+            zh_Hans: 包含浏览器自动化指令的完整LLM输出
+          label:
+            en_US: LLM Output
+            ja_JP: LLM Output
+            pt_BR: LLM Output
+            zh_Hans: LLM输出
+          llm_description: Complete output from previous LLM node containing browser
+            automation instructions and task details
+          max: null
+          min: null
+          name: llm_output
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Browser session ID to reuse existing browser session
+            ja_JP: Browser session ID to reuse existing browser session
+            pt_BR: Browser session ID to reuse existing browser session
+            zh_Hans: 浏览器会话ID，用于复用现有浏览器会话
+          label:
+            en_US: Persistent Session ID
+            ja_JP: Persistent Session ID
+            pt_BR: Persistent Session ID
+            zh_Hans: 持久会话ID
+          llm_description: Optional session ID to continue using an existing browser
+            session instead of creating a new one
+          max: null
+          min: null
+          name: persistent_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          llm_output: ''
+          persistent_id: ''
+        provider_id: sandbox
+        provider_name: sandbox
+        provider_type: builtin
+        selected: false
+        title: 浏览器自动化
+        tool_configurations: {}
+        tool_description: 执行由LLM生成指令的浏览器自动化任务
+        tool_label: 浏览器自动化
+        tool_name: browser_automation
+        tool_node_version: '2'
+        tool_parameters:
+          llm_output:
+            type: mixed
+            value: '{{#1758258689516.text#}}'
+          persistent_id:
+            type: mixed
+            value: '{{#conversation.sandbox_persistent_id#}}'
+        type: tool
+      height: 53
+      id: '1758259395489'
+      position:
+        x: 2150.6251005809136
+        y: 990.3908057392293
+      positionAbsolute:
+        x: 2150.6251005809136
+        y: 990.3908057392293
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 8192
+            temperature: 0.7
+          mode: chat
+          name: deepseek-ai/DeepSeek-V3
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: fae24be4-75a3-4952-84c7-73717412e393
+          role: system
+          text: "# \U0001F3AF 小红书内衣痛点挖掘专家\n    \n你是专业的内衣行业痛点分析师，负责从小红书帖子和评论中深度挖掘用户痛点、需求和使用场景。\n\
+            \n## \U0001F4CA 待分析数据\n**帖子标题**:{{#1758258411694.text#}} 里面的title字段\n\
+            **帖子正文**: {{#1758259395489.text#}}里description\n**用户评论**: {{#1758259395489.text#}}里的评论\n\
+            \n## \U0001F50D 分析维度\n### 1. 痛点识别标准\n**内衣判断维度**：\n- 舒适度：勒痕、透气性、面料、穿着感受\n\
+            - 支撑性：下垂、外扩、副乳、聚拢效果\n- 设计：无钢圈、无痕、肩带、罩杯\n- 尺寸：大小合适、码数准确、调节性\n- 功能：运动、哺乳、塑形、隐形\n\
+            - 服务：售后、客服、退换货\n\n**痛点提取策略**：\n- 正面情绪：解决了什么问题（已解决痛点）\n- 负面情绪：存在什么问题（未解决痛点）\n\
+            - 中性描述：潜在问题或需求\n\n### 2. 情感强度评估\n- **强烈负面**：破防、踩坑、避雷、太难受、完全不行\n- **中度负面**：不太好、有点问题、不够满意\n\
+            - **中性**：还可以、一般、普通\n- **中度正面**：不错、满意、推荐\n- **强烈正面**：yyds、绝绝子、必买、回购\n\n\
+            ### 3. 使用场景识别\n- 运动场景：健身、跑步、瑜伽、户外运动\n- 日常通勤：上班、上学、日常穿搭\n- 特殊时期：孕期、哺乳期、生理期\n\
+            - 社交场合：约会、聚会、重要场合\n- 居家休闲：睡觉、在家、放松时\n\n## \U0001F4CB 输出格式\n\n**\U0001F6A8\
+            \ 必须严格按照以下JSON格式输出，每条帖子/评论一个分析单元：**\n\n```json\n{\n  \"pain_point_analysis\"\
+            : [\n    {\n      \"content_id\": \"内容标识（帖子ID或评论ID）\",\n      \"content_type\"\
+            : \"post/comment\",\n      \"user_name\": \"用户昵称\",\n      \"content_snippet\"\
+            : \"完整内容（帖子=标题+正文，评论=评论内容）\",\n      \"tags\": [\"标签1\", \"标签2\", \"标签3\"\
+            ],\n      \"brand_mentions\": [\"提到的品牌1\", \"品牌2\"],\n      \"product_models\"\
+            : [\"具体产品型号\"],\n      \"identified_pain_points\": [\n        {\n    \
+            \      \"pain_point\": \"具体痛点描述\",\n          \"category\": \"舒适度/支撑性/设计/尺寸/功能/服务\"\
+            ,\n          \"severity\": \"严重/中等/轻微\",\n          \"evidence\": \"支撑证据的原文片段\"\
+            \n        }\n      ],\n      \"solved_problems\": [\n        {\n     \
+            \     \"problem\": \"已解决的问题\",\n          \"solution\": \"解决方案\",\n  \
+            \        \"satisfaction\": \"满意度评价\"\n        }\n      ],\n      \"user_needs\"\
+            : [\n        {\n          \"need\": \"用户需求描述\",\n          \"priority\"\
+            : \"高/中/低\",\n          \"type\": \"功能性/情感性/社交性\"\n        }\n      ],\n\
+            \      \"usage_scenarios\": [\n        {\n          \"scenario\": \"使用场景\"\
+            ,\n          \"frequency\": \"高频/中频/低频\",\n          \"pain_intensity\"\
+            : \"强/中/弱\"\n        }\n      ],\n      \"emotional_analysis\": {\n  \
+            \      \"overall_sentiment\": \"正面/负面/中性\",\n        \"intensity_score\"\
+            : 0.85,\n        \"emotional_keywords\": [\"情感关键词\"],\n        \"user_satisfaction\"\
+            : \"非常满意/满意/一般/不满意/非常不满意\"\n      },\n      \"commercial_insights\": {\n\
+            \        \"purchase_intent\": \"高/中/低/无\",\n        \"recommendation_likelihood\"\
+            : \"会推荐/可能推荐/不会推荐\",\n        \"competitor_comparison\": \"是否存在竞品对比\"\
+            ,\n        \"price_sensitivity\": \"价格敏感度评估\"\n      }\n    }\n  ],\n\
+            \  \"summary_insights\": {\n    \"high_frequency_pain_points\": [\"高频痛点1\"\
+            , \"痛点2\"],\n    \"scenario_pain_ranking\": {\n      \"运动场景\": [\"痛点排名\"\
+            ],\n      \"日常通勤\": [\"痛点排名\"]\n    },\n    \"brand_pain_correlation\"\
+            : {\n      \"品牌名\": [\"关联痛点\"]\n    },\n    \"urgent_needs\": [\"亟待解决的需求\"\
+            ],\n    \"market_opportunities\": [\"市场机会洞察\"]\n  }\n}\n```\n\n## \U0001F4DD\
+            \ 字段填写规则\n\n### **content_snippet字段规则**：\n- **帖子类型(post)**：完整保存\"帖子标题\
+            \ + 帖子正文\"\n- **评论类型(comment)**：完整保存\"用户评论内容\"\n\n### **tags字段规则**：\n\
+            - **帖子类型(post)**：必须包含tags字段，提取小红书帖子中的标签\n- **评论类型(comment)**：不包含tags字段（评论没有标签）\n\
+            \n## ⚠️ 分析要求\n\n1. **深度挖掘**：不仅看表面词汇，更要理解用户真实意图\n2. **证据支撑**：每个痛点都要有具体的文本证据\n\
+            3. **情感层次**：区分理性需求和感性需求\n4. **场景关联**：痛点必须与使用场景结合分析\n5. **商业价值**：识别有商业价值的痛点和机会\n\
+            6. **竞品洞察**：重点关注用户对比不同品牌的维度\n7. **完整性**：确保覆盖所有有价值的内容，不遗漏重要信息\n8. **字段准确性**：严格按照content_type区分是否包含tags字段\n\
+            9. **内容完整性**：content_snippet必须保存完整的原始内容，便于后续分析\n"
+        selected: false
+        title: LLM 5
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1758262744767'
+      position:
+        x: 2601.859849992783
+        y: 953.9257349967983
+      positionAbsolute:
+        x: 2601.859849992783
+        y: 953.9257349967983
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1758262744767.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 4
+        type: answer
+        variables: []
+      height: 104
+      id: '1758266258484'
+      position:
+        x: 3000.7485145754317
+        y: 894.1934205369527
+      positionAbsolute:
+        x: 3000.7485145754317
+        y: 894.1934205369527
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json, re\n\ndef main(response_body: str) -> dict:\n    result_data\
+          \ = {\n        \"operations\": [\n            {\n                \"action\"\
+          : \"navigate\",\n                \"params\": {\n                    \"url\"\
+          : \"https://www.xiaohongshu.com\"\n                },\n                \"\
+          description\": \"再访问小红书\"\n            }\n        ],\n        \"persistent\"\
+          : True,\n        \"auto_cleanup\": False\n    }\n    \n    return {\n  \
+          \      \"result\": json.dumps(result_data, ensure_ascii=False)\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 重开小红书避免上流节点影响
+        type: code
+        variables:
+        - value_selector:
+          - sys
+          - query
+          value_type: string
+          variable: response_body
+      height: 53
+      id: '1758559021460'
+      position:
+        x: 3394.9033934130143
+        y: 907.7644620145114
+      positionAbsolute:
+        x: 3394.9033934130143
+        y: 907.7644620145114
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Complete LLM output containing browser automation instructions
+            ja_JP: Complete LLM output containing browser automation instructions
+            pt_BR: Complete LLM output containing browser automation instructions
+            zh_Hans: 包含浏览器自动化指令的完整LLM输出
+          label:
+            en_US: LLM Output
+            ja_JP: LLM Output
+            pt_BR: LLM Output
+            zh_Hans: LLM输出
+          llm_description: Complete output from previous LLM node containing browser
+            automation instructions and task details
+          max: null
+          min: null
+          name: llm_output
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Browser session ID to reuse existing browser session
+            ja_JP: Browser session ID to reuse existing browser session
+            pt_BR: Browser session ID to reuse existing browser session
+            zh_Hans: 浏览器会话ID，用于复用现有浏览器会话
+          label:
+            en_US: Persistent Session ID
+            ja_JP: Persistent Session ID
+            pt_BR: Persistent Session ID
+            zh_Hans: 持久会话ID
+          llm_description: Optional session ID to continue using an existing browser
+            session instead of creating a new one
+          max: null
+          min: null
+          name: persistent_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          llm_output: ''
+          persistent_id: ''
+        provider_id: sandbox
+        provider_name: sandbox
+        provider_type: builtin
+        selected: false
+        title: 浏览器自动化
+        tool_configurations: {}
+        tool_description: 执行由LLM生成指令的浏览器自动化任务
+        tool_label: 浏览器自动化
+        tool_name: browser_automation
+        tool_node_version: '2'
+        tool_parameters:
+          llm_output:
+            type: mixed
+            value: '{{#1758559021460.result#}}'
+          persistent_id:
+            type: mixed
+            value: '{{#conversation.sandbox_persistent_id#}}'
+        type: tool
+      height: 53
+      id: '1758559114075'
+      position:
+        x: 3769.379057142047
+        y: 894.1934205369527
+      positionAbsolute:
+        x: 3769.379057142047
+        y: 894.1934205369527
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '上次节点影响已清楚，请进行接下来的操作
+
+          {{#1758559114075.text#}}
+
+
+          存储情况：
+
+          {{#1758569249717.body#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 5
+        type: answer
+        variables: []
+      height: 139
+      id: '1758559121363'
+      position:
+        x: 4143.85472087108
+        y: 894.1934205369527
+      positionAbsolute:
+        x: 4143.85472087108
+        y: 894.1934205369527
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-139
+            key: ''
+            type: text
+            value: '{{#1758262744767.text#}}'
+          type: json
+        desc: ''
+        headers: 'Content-Type:application/json
+
+          Accept:application/json'
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 2
+        type: http-request
+        url: http://192.168.32.2:8989/api/pain-analysis/store
+        variables: []
+      height: 139
+      id: '1758569249717'
+      position:
+        x: 3074.3012985692476
+        y: 1306.8208954049962
+      positionAbsolute:
+        x: 3074.3012985692476
+        y: 1306.8208954049962
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 8192
+            temperature: 0.7
+          mode: chat
+          name: deepseek-ai/DeepSeek-V3
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: fae24be4-75a3-4952-84c7-73717412e393
+          role: system
+          text: "# \U0001F3AF 小红书内衣痛点挖掘专家\n    \n你是专业的内衣行业痛点分析师，负责从小红书帖子和评论中深度挖掘用户痛点、需求和使用场景。\n\
+            \n## \U0001F4CA 待分析数据\n**帖子标题**:{{#1758166512392.text#}} 里面的title字段\n\
+            **帖子正文**: {{#1758166512392.text#}}里description\n**用户评论**: {{#1758166512392.text#}}里的评论\n\
+            \n## \U0001F50D 分析维度\n### 1. 痛点识别标准\n**内衣判断维度**：\n- 舒适度：勒痕、透气性、面料、穿着感受\n\
+            - 支撑性：下垂、外扩、副乳、聚拢效果\n- 设计：无钢圈、无痕、肩带、罩杯\n- 尺寸：大小合适、码数准确、调节性\n- 功能：运动、哺乳、塑形、隐形\n\
+            - 服务：售后、客服、退换货\n\n**痛点提取策略**：\n- 正面情绪：解决了什么问题（已解决痛点）\n- 负面情绪：存在什么问题（未解决痛点）\n\
+            - 中性描述：潜在问题或需求\n\n### 2. 情感强度评估\n- **强烈负面**：破防、踩坑、避雷、太难受、完全不行\n- **中度负面**：不太好、有点问题、不够满意\n\
+            - **中性**：还可以、一般、普通\n- **中度正面**：不错、满意、推荐\n- **强烈正面**：yyds、绝绝子、必买、回购\n\n\
+            ### 3. 使用场景识别\n- 运动场景：健身、跑步、瑜伽、户外运动\n- 日常通勤：上班、上学、日常穿搭\n- 特殊时期：孕期、哺乳期、生理期\n\
+            - 社交场合：约会、聚会、重要场合\n- 居家休闲：睡觉、在家、放松时\n\n## \U0001F4CB 输出格式\n\n**\U0001F6A8\
+            \ 必须严格按照以下JSON格式输出，每条帖子/评论一个分析单元：**\n\n```json\n{\n  \"pain_point_analysis\"\
+            : [\n    {\n      \"content_id\": \"内容标识（帖子ID或评论ID）\",\n      \"content_type\"\
+            : \"post/comment\",\n      \"user_name\": \"用户昵称\",\n      \"content_snippet\"\
+            : \"完整内容（帖子=标题+正文，评论=评论内容）\",\n      \"tags\": [\"标签1\", \"标签2\", \"标签3\"\
+            ],\n      \"brand_mentions\": [\"提到的品牌1\", \"品牌2\"],\n      \"product_models\"\
+            : [\"具体产品型号\"],\n      \"identified_pain_points\": [\n        {\n    \
+            \      \"pain_point\": \"具体痛点描述\",\n          \"category\": \"舒适度/支撑性/设计/尺寸/功能/服务\"\
+            ,\n          \"severity\": \"严重/中等/轻微\",\n          \"evidence\": \"支撑证据的原文片段\"\
+            \n        }\n      ],\n      \"solved_problems\": [\n        {\n     \
+            \     \"problem\": \"已解决的问题\",\n          \"solution\": \"解决方案\",\n  \
+            \        \"satisfaction\": \"满意度评价\"\n        }\n      ],\n      \"user_needs\"\
+            : [\n        {\n          \"need\": \"用户需求描述\",\n          \"priority\"\
+            : \"高/中/低\",\n          \"type\": \"功能性/情感性/社交性\"\n        }\n      ],\n\
+            \      \"usage_scenarios\": [\n        {\n          \"scenario\": \"使用场景\"\
+            ,\n          \"frequency\": \"高频/中频/低频\",\n          \"pain_intensity\"\
+            : \"强/中/弱\"\n        }\n      ],\n      \"emotional_analysis\": {\n  \
+            \      \"overall_sentiment\": \"正面/负面/中性\",\n        \"intensity_score\"\
+            : 0.85,\n        \"emotional_keywords\": [\"情感关键词\"],\n        \"user_satisfaction\"\
+            : \"非常满意/满意/一般/不满意/非常不满意\"\n      },\n      \"commercial_insights\": {\n\
+            \        \"purchase_intent\": \"高/中/低/无\",\n        \"recommendation_likelihood\"\
+            : \"会推荐/可能推荐/不会推荐\",\n        \"competitor_comparison\": \"是否存在竞品对比\"\
+            ,\n        \"price_sensitivity\": \"价格敏感度评估\"\n      }\n    }\n  ],\n\
+            \  \"summary_insights\": {\n    \"high_frequency_pain_points\": [\"高频痛点1\"\
+            , \"痛点2\"],\n    \"scenario_pain_ranking\": {\n      \"运动场景\": [\"痛点排名\"\
+            ],\n      \"日常通勤\": [\"痛点排名\"]\n    },\n    \"brand_pain_correlation\"\
+            : {\n      \"品牌名\": [\"关联痛点\"]\n    },\n    \"urgent_needs\": [\"亟待解决的需求\"\
+            ],\n    \"market_opportunities\": [\"市场机会洞察\"]\n  }\n}\n```\n\n## \U0001F4DD\
+            \ 字段填写规则\n\n### **content_snippet字段规则**：\n- **帖子类型(post)**：完整保存\"帖子标题\
+            \ + 帖子正文\"\n- **评论类型(comment)**：完整保存\"用户评论内容\"\n\n### **tags字段规则**：\n\
+            - **帖子类型(post)**：必须包含tags字段，提取小红书帖子中的标签\n- **评论类型(comment)**：不包含tags字段（评论没有标签）\n\
+            \n## ⚠️ 分析要求\n\n1. **深度挖掘**：不仅看表面词汇，更要理解用户真实意图\n2. **证据支撑**：每个痛点都要有具体的文本证据\n\
+            3. **情感层次**：区分理性需求和感性需求\n4. **场景关联**：痛点必须与使用场景结合分析\n5. **商业价值**：识别有商业价值的痛点和机会\n\
+            6. **竞品洞察**：重点关注用户对比不同品牌的维度\n7. **完整性**：确保覆盖所有有价值的内容，不遗漏重要信息\n8. **字段准确性**：严格按照content_type区分是否包含tags字段\n\
+            9. **内容完整性**：content_snippet必须保存完整的原始内容，便于后续分析\n"
+        selected: false
+        title: LLM 5 (1)
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '17585942205510'
+      position:
+        x: 2021.3305982066067
+        y: 697.2129922379112
+      positionAbsolute:
+        x: 2021.3305982066067
+        y: 697.2129922379112
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#17585942205510.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 4 (1)
+        type: answer
+        variables: []
+      height: 104
+      id: '17585942499070'
+      position:
+        x: 2835.3720407298647
+        y: 545.6077449693744
+      positionAbsolute:
+        x: 2835.3720407298647
+        y: 545.6077449693744
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-139
+            key: ''
+            type: text
+            value: '{{#17585942205510.text#}}'
+          type: json
+        desc: ''
+        headers: 'Content-Type:application/json
+
+          Accept:application/json'
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 2 (1)
+        type: http-request
+        url: http://192.168.32.2:8989/api/pain-analysis/store
+        variables: []
+      height: 139
+      id: '17585942532170'
+      position:
+        x: 2848.3818461297324
+        y: 685.1825471467419
+      positionAbsolute:
+        x: 2848.3818461297324
+        y: 685.1825471467419
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json, re\n\ndef main(response_body: str) -> dict:\n    result_data\
+          \ = {\n        \"operations\": [\n            {\n                \"action\"\
+          : \"navigate\",\n                \"params\": {\n                    \"url\"\
+          : \"https://www.xiaohongshu.com\"\n                },\n                \"\
+          description\": \"再访问小红书\"\n            }\n        ],\n        \"persistent\"\
+          : True,\n        \"auto_cleanup\": False\n    }\n    \n    return {\n  \
+          \      \"result\": json.dumps(result_data, ensure_ascii=False)\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 重开小红书避免上流节点影响 (1)
+        type: code
+        variables:
+        - value_selector:
+          - sys
+          - query
+          value_type: string
+          variable: response_body
+      height: 53
+      id: '17585942586180'
+      position:
+        x: 3310.337681143032
+        y: 511.1467943194632
+      positionAbsolute:
+        x: 3310.337681143032
+        y: 511.1467943194632
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Complete LLM output containing browser automation instructions
+            ja_JP: Complete LLM output containing browser automation instructions
+            pt_BR: Complete LLM output containing browser automation instructions
+            zh_Hans: 包含浏览器自动化指令的完整LLM输出
+          label:
+            en_US: LLM Output
+            ja_JP: LLM Output
+            pt_BR: LLM Output
+            zh_Hans: LLM输出
+          llm_description: Complete output from previous LLM node containing browser
+            automation instructions and task details
+          max: null
+          min: null
+          name: llm_output
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Browser session ID to reuse existing browser session
+            ja_JP: Browser session ID to reuse existing browser session
+            pt_BR: Browser session ID to reuse existing browser session
+            zh_Hans: 浏览器会话ID，用于复用现有浏览器会话
+          label:
+            en_US: Persistent Session ID
+            ja_JP: Persistent Session ID
+            pt_BR: Persistent Session ID
+            zh_Hans: 持久会话ID
+          llm_description: Optional session ID to continue using an existing browser
+            session instead of creating a new one
+          max: null
+          min: null
+          name: persistent_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          llm_output: ''
+          persistent_id: ''
+        provider_id: sandbox
+        provider_name: sandbox
+        provider_type: builtin
+        selected: false
+        title: 浏览器自动化 (1)
+        tool_configurations: {}
+        tool_description: 执行由LLM生成指令的浏览器自动化任务
+        tool_label: 浏览器自动化
+        tool_name: browser_automation
+        tool_node_version: '2'
+        tool_parameters:
+          llm_output:
+            type: mixed
+            value: '{{#17585942586180.result#}}'
+          persistent_id:
+            type: mixed
+            value: '{{#conversation.sandbox_persistent_id#}}'
+        type: tool
+      height: 53
+      id: '17585942609600'
+      position:
+        x: 3743.2900208463566
+        y: 553.7126665757474
+      positionAbsolute:
+        x: 3743.2900208463566
+        y: 553.7126665757474
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '上次节点影响已清除，请进行接下来的操作
+
+          {{#17585942609600.text#}}
+
+
+          存储情况：
+
+          {{#17585942532170.body#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 5 (1)
+        type: answer
+        variables: []
+      height: 139
+      id: '17585942631050'
+      position:
+        x: 4398.808030206501
+        y: 656.1389195346654
+      positionAbsolute:
+        x: 4398.808030206501
+        y: 656.1389195346654
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -16.010356136333144
+      y: 65.22845472788214
+      zoom: 0.2500000000000006
