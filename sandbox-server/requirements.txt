@@ -8,6 +8,9 @@ aiohttp==3.9.1
 httpx
 playwright==1.40.0
 
+# 图片处理相关依赖
+Pillow==10.1.0
+
 # 数据库相关依赖
 PyMySQL==1.1.0
 DBUtils==3.0.3

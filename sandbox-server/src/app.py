@@ -23,6 +23,7 @@ from api.browser_routes import browser_router
 from api.sandbox_routes import sandbox_router
 from api.text_routes import text_router
 from api.pain_analysis_routes import pain_analysis_router
+from api.image_routes import image_router
 from middleware.error_handler import ErrorHandlerMiddleware
 from config.settings import settings
 
@@ -78,6 +79,7 @@ app.include_router(browser_router, prefix="/api/browser", tags=["浏览器自动
 app.include_router(sandbox_router, prefix="/api/sandbox", tags=["沙盒信息"])
 app.include_router(text_router, prefix="/api/text", tags=["文本处理"])
 app.include_router(pain_analysis_router, prefix="/api/pain-analysis", tags=["痛点分析"])
+app.include_router(image_router, prefix="/api/image", tags=["图片处理"])
 
 @app.get("/")
 async def root():
@@ -98,7 +100,8 @@ async def root():
             "browser_automation": "/api/browser/automation",
             "sandbox_management": "/api/sandbox/*",
             "text_processing": "/api/text/automation",
-            "pain_analysis": "/api/pain-analysis/store"
+            "pain_analysis": "/api/pain-analysis/store",
+            "image_processing": "/api/image/url-to-base64"
         },
         "llm_friendly_endpoints": {
             "visit": "/api/browser/visit",
@@ -134,6 +137,12 @@ async def root():
             "get_content_detail": "/api/pain-analysis/content/{content_id}",
             "health_check": "/api/pain-analysis/health",
             "description": "小红书痛点分析数据存储和查询服务，支持批量数据存储、统计分析、条件查询等功能"
+        },
+        "image_processing_operations": {
+            "url_to_base64": "/api/image/url-to-base64",
+            "supported_formats": "/api/image/supported-formats", 
+            "health_check": "/api/image/health",
+            "description": "图片处理服务，支持图片URL转base64编码、格式转换、尺寸调整、质量控制等功能"
         },
         "architecture": {
             "platform": "E2B Cloud Sandbox",
