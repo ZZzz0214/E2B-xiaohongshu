@@ -10,7 +10,8 @@ xiaohongshu_pain_analysis (主表)
 ├── xiaohongshu_brand_mentions (品牌提及)
 ├── xiaohongshu_product_models (产品型号)
 ├── xiaohongshu_emotional_keywords (情感关键词)
-├── xiaohongshu_post_tags (帖子标签) ← 🆕 新增
+├── xiaohongshu_post_tags (帖子标签)
+├── xiaohongshu_post_classification (帖子分类) ← 🆕 新增
 └── 通过 content_id 关联
 
 xiaohongshu_summary_insights (汇总表)
@@ -283,7 +284,55 @@ CREATE TABLE xiaohongshu_post_tags (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='帖子标签表';
 ```
 
-### **10. 汇总洞察表 - xiaohongshu_summary_insights**
+### **10. 帖子分类表 - xiaohongshu_post_classification** 
+
+**表功能**：存储小红书帖子的分类标注信息，支持内容类型识别、用户画像分析和内容汇总。
+
+**设计说明**：
+- 主要用于帖子类型内容的分类标注
+- **核心必要字段**：作者ID、作者昵称、帖子标题、内容分类、分类判断理由
+- 通过post_id关联到主表的content_id，支持数据关联查询
+- 分类标准：测评 > 推荐 > 避雷 > 踩坑 > 问询互动 > 个人笔记（按优先级排序）
+- **新增分析字段**：用户画像初步分析、内容初步汇总，支持深度内容理解
+
+```sql
+-- 帖子分类表 - 存储小红书帖子分类标注信息
+CREATE TABLE xiaohongshu_post_classification (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '自增主键',
+    post_id VARCHAR(50) NOT NULL UNIQUE COMMENT '帖子ID，关联主表content_id',
+    
+    -- ========== 核心必要字段 ==========
+    author_id VARCHAR(50) NOT NULL COMMENT '作者ID（必要字段）',
+    author_name VARCHAR(100) NOT NULL COMMENT '作者昵称（必要字段）',
+    title TEXT NOT NULL COMMENT '帖子标题（必要字段）',
+    classification ENUM('测评', '推荐', '避雷', '踩坑', '问询互动', '个人笔记', 'INVALID') NOT NULL COMMENT '内容分类（必要字段）',
+    reasoning TEXT NOT NULL COMMENT '分类判断理由（必要字段）',
+    
+    -- ========== 分析结果字段 ==========
+    user_profile TEXT COMMENT '用户画像初步分析',
+    content_summary TEXT COMMENT '内容初步汇总',
+    content_quality_score DECIMAL(3,2) COMMENT '内容质量评分 0.00-1.00',
+    
+    -- ========== 系统管理字段 ==========
+    analysis_batch VARCHAR(50) COMMENT '分析批次标识',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '记录创建时间',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '记录更新时间',
+    
+    -- 索引优化
+    INDEX idx_post_id (post_id),
+    INDEX idx_author_id (author_id),
+    INDEX idx_author_name (author_name),
+    INDEX idx_classification (classification),
+    INDEX idx_content_quality_score (content_quality_score),
+    INDEX idx_analysis_batch (analysis_batch),
+    INDEX idx_created_at (created_at),
+    
+    -- 外键约束（可选，根据实际情况决定是否启用）
+    FOREIGN KEY (post_id) REFERENCES xiaohongshu_pain_analysis(content_id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='帖子分类表';
+```
+
+### **11. 汇总洞察表 - xiaohongshu_summary_insights**
 
 **表功能**：存储每个分析批次的基本统计信息，为决策提供高层次数据支持。
 
@@ -316,7 +365,7 @@ CREATE TABLE xiaohongshu_summary_insights (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='汇总洞察表';
 ```
 
-### **11. 高频痛点表 - xiaohongshu_high_frequency_pains**
+### **12. 高频痛点表 - xiaohongshu_high_frequency_pains**
 
 **表功能**：存储分析批次中的高频痛点列表，支持痛点热度排名。
 
@@ -339,7 +388,7 @@ CREATE TABLE xiaohongshu_high_frequency_pains (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='高频痛点表';
 ```
 
-### **12. 场景痛点排名表 - xiaohongshu_scenario_pain_ranking**
+### **13. 场景痛点排名表 - xiaohongshu_scenario_pain_ranking**
 
 **表功能**：存储不同场景下的痛点排名，支持场景化分析。
 
@@ -362,7 +411,7 @@ CREATE TABLE xiaohongshu_scenario_pain_ranking (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='场景痛点排名表';
 ```
 
-### **13. 品牌痛点关联表 - xiaohongshu_brand_pain_correlation**
+### **14. 品牌痛点关联表 - xiaohongshu_brand_pain_correlation**
 
 **表功能**：存储品牌与痛点的关联关系，支持品牌维度的痛点分析。
 
@@ -385,7 +434,7 @@ CREATE TABLE xiaohongshu_brand_pain_correlation (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='品牌痛点关联表';
 ```
 
-### **14. 紧急需求表 - xiaohongshu_urgent_needs**
+### **15. 紧急需求表 - xiaohongshu_urgent_needs**
 
 **表功能**：存储分析识别出的紧急用户需求，为产品规划提供依据。
 
@@ -408,7 +457,7 @@ CREATE TABLE xiaohongshu_urgent_needs (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='紧急需求表';
 ```
 
-### **15. 市场机会表 - xiaohongshu_market_opportunities**
+### **16. 市场机会表 - xiaohongshu_market_opportunities**
 
 **表功能**：存储识别出的市场机会，为业务战略制定提供参考。
 
@@ -434,5 +483,6 @@ CREATE TABLE xiaohongshu_market_opportunities (
 ```
 
 ---
+
 
 
